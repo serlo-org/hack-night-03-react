@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import './index.css'
-
 const renderComponent = (component) => ReactDOM.render(component, document.getElementById('app'))
 
 let render = () => {
-  const App = require('src/editor/components/Editor').default
+  const App = require('src/common/components/Container').default
 
   renderComponent(<App />)
 }
@@ -26,7 +24,7 @@ if (module.hot) {
     }
   }
 
-  module.hot.accept('src/editor/components/Editor', () => {
+  module.hot.accept('src/common/components/Container', () => {
     setTimeout(render)
   })
 }
