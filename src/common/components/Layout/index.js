@@ -10,21 +10,12 @@ const Layout = ({ children }) => (
         </div>
         <div>
           <ul className="nav navbar-nav">
-            <li>
-              <Link to="/hello-world">1</Link>
-            </li>
-            <li>
-              <Link to="/hello-world-props">2</Link>
-            </li>
-            <li>
-              <Link to="/hello-world-props-jsx">3</Link>
-            </li>
-            <li>
-              <Link to="/markdown">4</Link>
-            </li>
-            <li>
-              <Link to="/markdown-live-preview">5</Link>
-            </li>
+            <li><Link to="/hello-world">1</Link></li>
+            <li><Link to="/hello-world-props">2</Link></li>
+            <li><Link to="/hello-world-props-jsx">3</Link></li>
+            <li><Link to="/markdown">4</Link></li>
+            <li><Link to="/markdown-live-preview">5</Link></li>
+            <li><Link to="/server-call">6</Link></li>
           </ul>
         </div>
       </div>

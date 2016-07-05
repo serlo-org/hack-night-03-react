@@ -7,7 +7,8 @@ import Greeting from 'src/common/components/examples/Greeting'
 import GreetingProps from 'src/common/components/examples/GreetingProps'
 import GreetingPropsJSX from 'src/common/components/examples/GreetingPropsJSX'
 import Markdown from 'src/common/components/examples/Markdown'
-import MarkdownForm from 'src/common/components/examples/markdownLivePreview'
+import MarkdownForm from 'src/common/components/examples/MarkdownLivePreview'
+import ServerCall from 'src/common/components/examples/ServerCall'
 
 /* eslint-disable react/jsx-no-bind */
 const Container = () => (
@@ -18,6 +19,7 @@ const Container = () => (
       <Route path="hello-world-props-jsx" component={() => <GreetingPropsJSX name="Hacknight" />} />
       <Route path="markdown" component={() => <Markdown src="This is some **[Markdown](https://daringfireball.net/projects/markdown/).**" />} />
       <Route path="markdown-live-preview" component={() => <MarkdownForm />} />
+      <Route path="server-call" component={() => <ServerCall />} />
       <IndexRoute component={App} />
     </Route>
   </Router>
