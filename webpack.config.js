@@ -1,62 +1,66 @@
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const path = require('path')
-const R = require('ramda')
-const webpack = require('webpack')
+/* eslint-disable */
 
-const isProduction = process.env.NODE_ENV === 'production'
-const isDevelopment = !isProduction
-const createEnvAwareArray = R.reject(R.isNil)
-
-const ifProduction = (x) => isProduction ? x : null
-const ifDevelopment = (x) => isDevelopment ? x : null
+var path = require("path");
+var webpack = require("webpack");
 
 module.exports = {
-  entry: createEnvAwareArray([
-    ifDevelopment('webpack-hot-middleware/client'),
-    path.join(__dirname, 'src', 'client')
-  ]),
+  devtool: "source-map",
+  entry: [
+    "webpack-hot-middleware/client",
+    "babel-polyfill",
+    "./index"
+  ],
   output: {
-    path: path.join(__dirname, 'public'),
-    publicPath: '/',
-    filename: 'bundle.js'
+    path: path.join(__dirname, "dist"),
+    filename: "bundle.js",
+    publicPath: "/dist/"
   },
-  devtool: 'source-map',
-  plugins: createEnvAwareArray([
-    new HtmlWebpackPlugin({
-      template: path.join(__dirname, 'src', 'client', 'index.ejs'),
-      inject: 'body'
-    }),
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    ifDevelopment(new webpack.HotModuleReplacementPlugin()),
-    ifProduction(new webpack.DefinePlugin({ 'process.env.NODE_ENV': '"production"' })),
-    ifProduction(new webpack.optimize.UglifyJsPlugin()),
-    ifProduction(new ExtractTextPlugin('styles.css'))
-  ]),
-  resolve: {
-    modules: [
-      __dirname,
-      'node_modules'
-    ]
-  },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ],
   module: {
     loaders: [{
-      test: /\.js$/,
-      loader: 'babel',
+      test: /\.md$/,
+      loader: "html-loader!markdown-loader?gfm=false"
+    }, {
+      test: /\.(js|jsx)$/,
       exclude: /node_modules/,
+      loader: "babel-loader",
       query: {
-        presets: [
-          'es2015-webpack',
-          'stage-2',
-          'react'
-        ],
-        plugins: [
-          'transform-inline-environment-variables'
-        ]
+        presets:['react', 'es2015'],
+        env: {
+          development: {
+            plugins: [["react-transform", {
+              transforms: [{
+                transform: "react-transform-hmr",
+                imports: ["react"],
+                locals: ["module"]
+              }]
+            }]]
+          }
+        }
       }
     }, {
       test: /\.css$/,
-      loaders: isProduction ? ExtractTextPlugin.extract('style', ['css']) : ['style', 'css']
+      loaders: ["style", "raw"],
+      include: __dirname
+    }, {
+      test: /\.svg$/,
+      loader: "url?limit=10000&mimetype=image/svg+xml",
+      include: path.join(__dirname, "assets")
+    }, {
+      test: /\.png$/,
+      loader: "url-loader?mimetype=image/png",
+      include: path.join(__dirname, "assets")
+    }, {
+      test: /\.gif$/,
+      loader: "url-loader?mimetype=image/gif",
+      include: path.join(__dirname, "assets")
+    }, {
+      test: /\.jpg$/,
+      loader: "url-loader?mimetype=image/jpg",
+      include: path.join(__dirname, "assets")
     }]
   }
-}
+};

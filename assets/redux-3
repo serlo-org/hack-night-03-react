@@ -1,0 +1,23 @@
+<div id="app"></div>
+
+import { createStore, combineReducers } from 'redux'
+
+export default combineReducers({
+  greeting: (state = 'Leave me alone.', action) => {
+    switch (action.type) {
+      case 'GREET':
+        return action.text
+    }
+  }
+})
+
+const store = createStore(
+  rootReducer,
+  initialState,
+)
+
+ReactDOM.render((
+  <Provider store={store}>
+    <Greeting>
+  </Provider >
+), document.getElementById('app'))

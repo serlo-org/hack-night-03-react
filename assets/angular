@@ -1,0 +1,16 @@
+<div ng-controller="MyController">
+  Your name:
+    <input type="text" ng-model="username">
+    <button ng-click='sayHello()'>greet</button>
+  <hr>
+  {{greeting}}
+</div>
+
+angular
+  .module('scopeExample', [])
+  .controller('MyController', ['$scope', function($scope) {
+    $scope.username = 'World';
+    $scope.sayHello = function() {
+      $scope.greeting = 'Hello ' + $scope.username + '!';
+    };
+}]);

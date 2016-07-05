@@ -1,0 +1,24 @@
+import { connect } from 'react-redux'
+
+const Greet = (props) => (
+  <div onClick={() => props.greet('hi')}>
+      {props.greeting}
+  </div>
+)
+
+const greet = (text) => ({
+  type: 'GREET',
+  text
+})
+
+const selector = ({ greeting }) => greeting
+
+const mapStateToProps = (state) => ({
+  greeting: greeting(state)
+})
+
+const mapDispatchToProps = {
+  greet
+}
+
+export default (connect(mapStateToProps, mapDispatchToProps)(Greet)

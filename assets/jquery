@@ -1,0 +1,17 @@
+<div id="target">
+  Click here
+</div>
+<div id="target2">
+  Do something else
+</div>
+<script>
+$("#target").click(function() {
+    $("#target").innerHTML = 'foo';
+});
+
+$("#target2").click(function() {
+    if($("#target").innerHTML === 'foo') {
+        $("#target").innerHTML = 'bar';
+    }
+});
+</script>
