@@ -16,7 +16,6 @@ class ServerCall extends Component {
 
     return message ? <div>{message}</div> : <span className="fa fa-spinner fa-3x fa-spin " />
   }
-
 }
 
 export default ServerCall

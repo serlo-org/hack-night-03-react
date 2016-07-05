@@ -7,10 +7,7 @@ class MarkdownForm extends Component {
     super(props)
     this.state = { src: '' }
 
-    this.handleChange = (e) => {
-      const src = e.target.value
-      this.setState({ src })
-    }
+    this.handleChange = (e) => this.setState({ src: e.target.value })
     this.reset = () => this.setState({ src: '' })
   }
 
