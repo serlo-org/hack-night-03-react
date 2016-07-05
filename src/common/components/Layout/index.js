@@ -16,6 +16,7 @@ const Layout = ({ children }) => (
             <li><Link to="/markdown">4</Link></li>
             <li><Link to="/markdown-live-preview">5</Link></li>
             <li><Link to="/server-call">6</Link></li>
+            <li><Link to="/redux">7</Link></li>
           </ul>
         </div>
       </div>
