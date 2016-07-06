@@ -1,5 +1,12 @@
 # hack-night-03-react
 
+## Slides
+
+* [React](https://serlo-org.github.io/hack-night-03-react/react/)
+* [Redux](https://serlo-org.github.io/hack-night-03-react/redux/)
+
+## Usage
+
 You need [Node.js](https://nodejs.org) 4 or higher installed on your system. We encourage to use the [Node version manager](https://github.com/creationix/nvm).
 
 ```
