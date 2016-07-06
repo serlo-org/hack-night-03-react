@@ -1,4 +1,3 @@
-// A company has a global knowledge management, called the store
 const store = redux.createStore({
   ceo: 'John Doe',
   departments: {
@@ -8,16 +7,13 @@ const store = redux.createStore({
   }
 })
 
-// CEO decides new directive: everyone must wear appropriate clothes
 const action = {
     type: 'NEW_DIRECTIVE',
     rule: 'appropriate clothing'
 })
 
-// CEO makes directive public
 store.dispatch(action)
 
-// Departments decide what to do
 const itDepartment = (state = {}, action) => {
   switch (action.type) {
   case 'NEW_DIRECTIVE':
@@ -31,7 +27,6 @@ const itDepartment = (state = {}, action) => {
   }
 }
 
-// CEO can always see what's happening
 console.log(store.getStore())
 {
   departments: {
@@ -41,5 +36,15 @@ console.log(store.getStore())
   }
 }
 
-// CEO resigns.
 store.dispatch({ type: 'CEO_RESIGN' })
+
+
+
+
+
+
+
+
+
+
+

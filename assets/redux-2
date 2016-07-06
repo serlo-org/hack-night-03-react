@@ -1,3 +1,4 @@
+import React from 'react'
 import { connect } from 'react-redux'
 
 const Greet = (props) => (
@@ -21,4 +22,21 @@ const mapDispatchToProps = {
   greet
 }
 
-export default (connect(mapStateToProps, mapDispatchToProps)(Greet)
+export default connect(mapStateToProps, mapDispatchToProps)(Greet)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
