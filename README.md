@@ -18,3 +18,8 @@ $ open http://localhost:3000/
 # open the Redux DevTools in your browser
 $ open http://remotedev.io/local/
 ```
+
+## Resources
+
+* [awesome-react](https://github.com/enaqx/awesome-react)
+* [awesome-redux](https://github.com/xgrommx/awesome-redux)
