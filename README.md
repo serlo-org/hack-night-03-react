@@ -1,11 +1,8 @@
 # hack-night-03-react
 
-You need [Node.js](https://nodejs.org) 4 or higher installed on your system.
+You need [Node.js](https://nodejs.org) 4 or higher installed on your system. We encourage to use the [Node version manager)](https://github.com/creationix/nvm).
 
 ```
-$ git clone https://github.com/ory-am/editor.git
-$ cd editor
-
 # Install dependencies
 $ npm i
 
