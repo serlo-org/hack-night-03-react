@@ -7,7 +7,7 @@
 
 ## Usage
 
-You need [Node.js](https://nodejs.org) 4 or higher installed on your system. We encourage to use the [Node version manager](https://github.com/creationix/nvm).
+You need [Node.js](https://nodejs.org) 5 or higher installed on your system. We encourage to use the [Node version manager](https://github.com/creationix/nvm).
 
 ```
 # Install dependencies
